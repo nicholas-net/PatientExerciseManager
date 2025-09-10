@@ -2,6 +2,9 @@ package com.nicholascolon.lil.patientexercisemanager.entity;
 
 import jakarta.persistence.*;
 
+import java.sql.Time;
+import java.util.Date;
+
 @Entity
 @Table(name = "exercises")
 
@@ -22,15 +25,15 @@ public class Exercise {
     private String bodyPart;
 
     @Column(name = "image_url")
-    private String imageURL;
+    private String imageUrl;
 
     protected Exercise() {}
 
-    public Exercise(String exerciseName, int exerciseRepCount, String exerciseBodyPart, String exerciseImageURL) {
+    public Exercise(String exerciseName, int exerciseRepCount, String exerciseBodyPart, String exerciseImageUrl) {
         this.name = exerciseName;
         this.repCount = exerciseRepCount;
         this.bodyPart = exerciseBodyPart;
-        this.imageURL = exerciseImageURL;
+        this.imageUrl = exerciseImageUrl;
     }
 
     public Long getId() {
@@ -66,11 +69,11 @@ public class Exercise {
     }
 
     public String getImageURL() {
-        return imageURL;
+        return imageUrl;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImageURL(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
@@ -80,7 +83,7 @@ public class Exercise {
                 ", name='" + name + '\'' +
                 ", repCount=" + repCount +
                 ", bodyPart='" + bodyPart + '\'' +
-                ", imageURL='" + imageURL + '\'' +
+                ", imageURL='" + imageUrl + '\'' +
                 '}';
     }
 
