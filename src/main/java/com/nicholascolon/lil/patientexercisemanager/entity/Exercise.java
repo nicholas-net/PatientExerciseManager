@@ -15,8 +15,11 @@ public class Exercise {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "rep_count")
-    private int repCount;
+    @Column(name = "reps")
+    private int reps;
+
+    @Column(name = "sets")
+    private int sets;
 
     @Column(name = "body_part")
     private String bodyPart;
@@ -27,9 +30,9 @@ public class Exercise {
 
     protected Exercise() {}
 
-    public Exercise(String exerciseName, int exerciseRepCount, String exerciseBodyPart, String exerciseImageUrl) {
+    public Exercise(String exerciseName, int exerciseReps, String exerciseBodyPart, String exerciseImageUrl) {
         this.name = exerciseName;
-        this.repCount = exerciseRepCount;
+        this.reps = exerciseReps;
         this.bodyPart = exerciseBodyPart;
         this.imageUrl = exerciseImageUrl;
     }
@@ -50,12 +53,20 @@ public class Exercise {
         this.name = name;
     }
 
-    public int getRepCount() {
-        return repCount;
+    public int getReps() {
+        return reps;
     }
 
-    public void setRepCount(int repCount) {
-        this.repCount = repCount;
+    public void setReps(int reps) {
+        this.reps = reps;
+    }
+
+    public int getSets() {
+        return sets;
+    }
+
+    public void setSets(int sets) {
+        this.sets = sets;
     }
 
     public String getBodyPart() {
@@ -79,7 +90,7 @@ public class Exercise {
         return "Exercise{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", repCount=" + repCount +
+                ", repCount=" + reps +
                 ", bodyPart='" + bodyPart + '\'' +
                 ", imageURL='" + imageUrl + '\'' +
                 '}';
