@@ -2,9 +2,6 @@ package com.nicholascolon.lil.patientexercisemanager.entity;
 
 import jakarta.persistence.*;
 
-import java.sql.Time;
-import java.util.Date;
-
 @Entity
 @Table(name = "exercises")
 
@@ -26,6 +23,7 @@ public class Exercise {
 
     @Column(name = "image_url")
     private String imageUrl;
+
 
     protected Exercise() {}
 
