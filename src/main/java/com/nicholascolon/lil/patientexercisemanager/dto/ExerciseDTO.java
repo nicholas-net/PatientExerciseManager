@@ -1,17 +1,17 @@
 package com.nicholascolon.lil.patientexercisemanager.dto;
 
-import com.nicholascolon.lil.patientexercisemanager.entity.Exercise;
-
 public class ExerciseDTO {
 
     private final String name;
-    private final int repCount;
+    private final int reps;
+    private final int sets;
     private final String bodyPart;
     private final String imageUrl;
 
-    public ExerciseDTO(String name, int repCount, String bodyPart, String imageUrl) {
+    public ExerciseDTO(String name, int reps, int sets, String bodyPart, String imageUrl) {
         this.name = name;
-        this.repCount = repCount;
+        this.reps = reps;
+        this.sets = sets;
         this.bodyPart = bodyPart;
         this.imageUrl = imageUrl;
     }
@@ -20,8 +20,12 @@ public class ExerciseDTO {
         return name;
     }
 
-    public int getRepCount() {
-        return repCount;
+    public int getReps() {
+        return reps;
+    }
+
+    public int getSets() {
+        return sets;
     }
 
     public String getBodyPart() {

@@ -19,8 +19,11 @@ public class Assignment {
     @Column(name = "id")
     private Long assignmentId;
 
-    @Column(name = "rep_count")
-    private int repCount;
+    @Column(name = "reps")
+    private int reps;
+
+    @Column(name = "sets")
+    private int sets;
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
@@ -32,9 +35,10 @@ public class Assignment {
 
     protected Assignment() {}
 
-    public Assignment(Long assignmentId, int repCount) {
+    public Assignment(Long assignmentId, int reps, int sets) {
         this.assignmentId = assignmentId;
-        this.repCount = repCount;
+        this.reps = reps;
+        this.sets = sets;
     }
 
     public Long getAssignmentId() {

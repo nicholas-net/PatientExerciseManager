@@ -2,6 +2,8 @@ package com.nicholascolon.lil.patientexercisemanager.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+
 @Entity
 @Table(name = "exercises")
 
@@ -9,19 +11,19 @@ public class Exercise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "reps")
+    @Column(name = "reps", nullable = false)
     private int reps;
 
-    @Column(name = "sets")
+    @Column(name = "sets", nullable = false)
     private int sets;
 
-    @Column(name = "body_part")
+    @Column(name = "body_part", nullable = false)
     private String bodyPart;
 
     @Column(name = "image_url")
@@ -85,12 +87,22 @@ public class Exercise {
         this.imageUrl = imageUrl;
     }
 
+    /***
+     * one exercise is assigned to an assignment in the list
+     * each one is tied to a patient
+     *
+     * This will allow the program to give all the assignments by exercise
+     */
+    @OneToMany(mappedBy = "exercise")
+    ArrayList<Assignment> assignments = new ArrayList<>();
+
     @Override
     public String toString() {
         return "Exercise{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", repCount=" + reps +
+                ", reps=" + reps +
+                ", sets= " + sets +
                 ", bodyPart='" + bodyPart + '\'' +
                 ", imageURL='" + imageUrl + '\'' +
                 '}';

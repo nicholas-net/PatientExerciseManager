@@ -2,6 +2,8 @@ package com.nicholascolon.lil.patientexercisemanager.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+
 @Entity
 @Table(name = "patients")
 
@@ -70,4 +72,12 @@ public class Patient {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+    /***
+     * A patient has many assignments
+     * Each assignment links that patient to a specific exercise
+     */
+    @OneToMany(mappedBy = "patient")
+    ArrayList<Assignment> assignments = new ArrayList<>();
+
 }
