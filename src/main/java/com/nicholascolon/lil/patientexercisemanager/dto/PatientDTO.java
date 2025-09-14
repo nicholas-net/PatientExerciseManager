@@ -1,5 +1,7 @@
 package com.nicholascolon.lil.patientexercisemanager.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PatientDTO {
 
     private String firstName;
@@ -20,4 +22,6 @@ public class PatientDTO {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+
 }
