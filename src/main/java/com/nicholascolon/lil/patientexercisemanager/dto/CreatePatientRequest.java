@@ -1,6 +1,6 @@
 package com.nicholascolon.lil.patientexercisemanager.dto;
 
-public class CreateClientRequest {
+public class CreatePatientRequest {
 
     private int age;
     private String firstName;

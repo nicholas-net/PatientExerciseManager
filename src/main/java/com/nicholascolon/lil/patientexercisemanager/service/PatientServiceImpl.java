@@ -1,7 +1,7 @@
 package com.nicholascolon.lil.patientexercisemanager.service;
 
 import com.nicholascolon.lil.patientexercisemanager.dao.PatientRepository;
-import com.nicholascolon.lil.patientexercisemanager.dto.CreateClientRequest;
+import com.nicholascolon.lil.patientexercisemanager.dto.CreatePatientRequest;
 import com.nicholascolon.lil.patientexercisemanager.entity.Patient;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -23,27 +23,27 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public CreateClientRequest savePatient(CreateClientRequest createClientRequest) {
+    public CreatePatientRequest savePatient(CreatePatientRequest createPatientRequest) {
 
         Patient patient = new Patient();
 
         // Controller provides the patientDTO for the function to map to a patient entity to save in the db
 
-        patient.setAge(createClientRequest.getAge());
-        patient.setFirstName(createClientRequest.getFirstName());
-        patient.setLastName(createClientRequest.getLastName());
+        patient.setAge(createPatientRequest.getAge());
+        patient.setFirstName(createPatientRequest.getFirstName());
+        patient.setLastName(createPatientRequest.getLastName());
 
         // return saved patient to clinician dashboard
 
         // Persist patient in db
         patientRepository.save(patient);
-        return createClientRequest;
+        return createPatientRequest;
 
     }
 
     // Pass in patient object with updated attributes to be saved
     @Override
-    public CreateClientRequest updatePatient(Long id, ) {
+    public CreatePatientRequest updatePatient(Long id,) {
 
         Optional<Patient> patient = patientRepository.findById(id);
 
@@ -65,7 +65,7 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public List<CreateClientRequest> getPatients() {
+    public List<CreatePatientRequest> getPatients() {
 
     }
 }
