@@ -2,6 +2,7 @@ package com.nicholascolon.lil.patientexercisemanager.entity;
 
 import jakarta.persistence.*;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 @Entity
@@ -23,12 +24,20 @@ public class Patient {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    @Column(name = "date_of_birth", nullable = false)
+    private Date dateOfBirth;
+
+    @Column(name = "sex", nullable = false)
+    private String sex;
+
     public Patient() {}
 
-    public Patient(int patientAge, String patientFirstName, String patientLastName) {
+    public Patient(int patientAge, String patientFirstName, String patientLastName, Date dateOfBirth, String sex) {
         this.age = patientAge;
         this.firstName = patientFirstName;
         this.lastName = patientLastName;
+        this.dateOfBirth = dateOfBirth;
+        this.sex = sex;
     }
 
     public int getAge() {
@@ -61,6 +70,22 @@ public class Patient {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     @Override

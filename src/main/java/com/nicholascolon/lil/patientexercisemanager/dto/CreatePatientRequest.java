@@ -1,10 +1,13 @@
 package com.nicholascolon.lil.patientexercisemanager.dto;
 
+import java.util.Date;
+
 public class CreatePatientRequest {
 
     private int age;
     private String firstName;
     private String lastName;
+    private Date dateOfBirth;
 
     public int getAge() {
         return age;
@@ -28,5 +31,13 @@ public class CreatePatientRequest {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }
