@@ -3,9 +3,12 @@ package com.nicholascolon.lil.patientexercisemanager.service;
 import com.nicholascolon.lil.patientexercisemanager.dao.PatientRepository;
 import com.nicholascolon.lil.patientexercisemanager.dto.PatientDTO;
 import com.nicholascolon.lil.patientexercisemanager.entity.Patient;
+import jakarta.persistence.EntityNotFoundException;
+import org.springframework.data.util.Optionals;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Implements the PatientService defined methods
@@ -14,7 +17,7 @@ import java.util.List;
 @Service
 public class PatientServiceImpl implements PatientService {
 
-    Patient patient;
+    PatientDTO patientDTO = new PatientDTO();
     PatientRepository patientRepository;
 
     public PatientServiceImpl(PatientRepository patientRepository) {
@@ -29,7 +32,6 @@ public class PatientServiceImpl implements PatientService {
 
         // This method will prepare what we want the clinician to see in return
         // PatientDTO is returned back to the Controller
-        PatientDTO patientDTO = new PatientDTO();
         patientDTO.setFirstName(patient.getFirstName());
         patientDTO.setLastName(patient.getLastName());
         return patientDTO;
@@ -40,12 +42,20 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public PatientDTO updatePatient(Patient patient) {
-        return null;
+
+
     }
 
     @Override
-    public void deletePatient(int id) {
+    public void deletePatient(Long id) throws EntityNotFoundException {
 
+        Optional<Patient> patient = patientRepository.findById(id);
+
+        if (patient.isEmpty()) {
+            throw new EntityNotFoundException("Patient not found.");
+        } else {
+            patientRepository.deleteById(id);
+        }
     }
 
     @Override

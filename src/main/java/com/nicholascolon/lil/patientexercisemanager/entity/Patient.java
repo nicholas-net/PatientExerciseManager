@@ -80,4 +80,11 @@ public class Patient {
     @OneToMany(mappedBy = "patient")
     ArrayList<Assignment> assignments = new ArrayList<>();
 
+    public boolean isEmpty() {
+        Patient patient;
+        if (patient.getId() == null) {
+
+        }
+    }
+
 }

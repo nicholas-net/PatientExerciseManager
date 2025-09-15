@@ -9,6 +9,6 @@ public interface PatientService {
 
     public abstract PatientDTO savePatient(Patient patient);
     public abstract PatientDTO updatePatient(Patient patient);
-    public abstract void deletePatient(int id);
+    public abstract void deletePatient(Long id);
     public abstract List<PatientDTO> getPatients();
 }
