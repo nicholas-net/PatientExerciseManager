@@ -1,8 +1,6 @@
 package com.nicholascolon.lil.patientexercisemanager.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-public class PatientDTO {
+public class CreateClientRequest {
 
     private int age;
     private String firstName;
