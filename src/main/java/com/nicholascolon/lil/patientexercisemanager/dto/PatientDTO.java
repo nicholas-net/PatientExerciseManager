@@ -4,8 +4,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PatientDTO {
 
+    private int age;
     private String firstName;
     private String lastName;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -22,6 +31,4 @@ public class PatientDTO {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-
 }

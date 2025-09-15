@@ -4,7 +4,6 @@ import com.nicholascolon.lil.patientexercisemanager.dao.PatientRepository;
 import com.nicholascolon.lil.patientexercisemanager.dto.PatientDTO;
 import com.nicholascolon.lil.patientexercisemanager.entity.Patient;
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.data.util.Optionals;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,6 +31,7 @@ public class PatientServiceImpl implements PatientService {
 
         // This method will prepare what we want the clinician to see in return
         // PatientDTO is returned back to the Controller
+        patientDTO.setAge(patient.getAge());
         patientDTO.setFirstName(patient.getFirstName());
         patientDTO.setLastName(patient.getLastName());
         return patientDTO;
@@ -42,7 +42,6 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public PatientDTO updatePatient(Patient patient) {
-
 
     }
 
