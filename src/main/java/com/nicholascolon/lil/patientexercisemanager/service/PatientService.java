@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface PatientService {
 
-    public abstract PatientDTO savePatient(Patient patient);
-    public abstract PatientDTO updatePatient(Patient patient);
+    public abstract PatientDTO savePatient(PatientDTO patientDTO);
+    public abstract PatientDTO updatePatient(Long id, Patient patient);
     public abstract void deletePatient(Long id);
     public abstract List<PatientDTO> getPatients();
 }

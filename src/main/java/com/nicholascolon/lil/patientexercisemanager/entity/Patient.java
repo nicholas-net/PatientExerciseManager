@@ -23,7 +23,7 @@ public class Patient {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    protected Patient() {}
+    public Patient() {}
 
     public Patient(int patientAge, String patientFirstName, String patientLastName) {
         this.age = patientAge;
@@ -79,12 +79,5 @@ public class Patient {
      */
     @OneToMany(mappedBy = "patient")
     ArrayList<Assignment> assignments = new ArrayList<>();
-
-    public boolean isEmpty() {
-        Patient patient;
-        if (patient.getId() == null) {
-
-        }
-    }
 
 }

@@ -16,7 +16,6 @@ import java.util.Optional;
 @Service
 public class PatientServiceImpl implements PatientService {
 
-    PatientDTO patientDTO = new PatientDTO();
     PatientRepository patientRepository;
 
     public PatientServiceImpl(PatientRepository patientRepository) {
@@ -24,24 +23,26 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public PatientDTO savePatient(Patient patient) {
+    public PatientDTO savePatient(PatientDTO patientDTO) {
 
-        // The Controller provides the service method with the patient that we want to save in the DB
-        patientRepository.save(patient);
+        Patient patient = new Patient();
 
-        // This method will prepare what we want the clinician to see in return
-        // PatientDTO is returned back to the Controller
-        patientDTO.setAge(patient.getAge());
-        patientDTO.setFirstName(patient.getFirstName());
-        patientDTO.setLastName(patient.getLastName());
-        return patientDTO;
+        // Controller provides the patientDTO for the function to map to a patient entity to save in the db
+
+        patient.setAge(patientDTO.getAge());
+        patient.setFirstName(patientDTO.getFirstName());
+        patient.setLastName(patientDTO.getLastName());
 
         // return saved patient to clinician dashboard
+
+        // Persist patient in database
+        patientRepository.save(patient);
+        return patientDTO;
 
     }
 
     @Override
-    public PatientDTO updatePatient(Patient patient) {
+    public PatientDTO updatePatient(Long id, Patient patient) {
 
     }
 
