@@ -2,6 +2,7 @@ package com.nicholascolon.lil.patientexercisemanager.service;
 
 import com.nicholascolon.lil.patientexercisemanager.dao.PatientRepository;
 import com.nicholascolon.lil.patientexercisemanager.dto.CreatePatientRequest;
+import com.nicholascolon.lil.patientexercisemanager.dto.UpdatePatientRequest;
 import com.nicholascolon.lil.patientexercisemanager.entity.Patient;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -41,11 +42,13 @@ public class PatientServiceImpl implements PatientService {
 
     }
 
-    // Pass in patient object with updated attributes to be saved
+    // Pass in patient id to extract the patient that needs updating
     @Override
-    public CreatePatientRequest updatePatient(Long id,) {
+    public UpdatePatientRequest updatePatient(Long id) {
 
-        Optional<Patient> patient = patientRepository.findById(id);
+        Optional<Patient> targetPatient = patientRepository.findById(id);
+
+
 
 
 
