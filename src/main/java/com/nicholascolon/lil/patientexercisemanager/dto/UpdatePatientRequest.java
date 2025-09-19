@@ -20,6 +20,10 @@ public class UpdatePatientRequest {
     private String cellPhoneNumber;
     private String email;
 
+    public UpdatePatientRequest() {
+
+    }
+
     public String getLastName() {
         return lastName;
     }

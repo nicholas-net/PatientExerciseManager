@@ -1,6 +1,6 @@
 package com.nicholascolon.lil.patientexercisemanager.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class CreatePatientRequest {
 
@@ -16,6 +16,10 @@ public class CreatePatientRequest {
     private String homePhoneNumber;
     private String cellPhoneNumber;
     private String email;
+
+    public CreatePatientRequest() {
+
+    }
 
     public int getAge() {
         return age;
