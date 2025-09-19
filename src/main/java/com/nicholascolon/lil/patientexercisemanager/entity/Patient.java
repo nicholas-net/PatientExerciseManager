@@ -2,7 +2,7 @@ package com.nicholascolon.lil.patientexercisemanager.entity;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Entity
@@ -25,19 +25,48 @@ public class Patient {
     private String lastName;
 
     @Column(name = "date_of_birth", nullable = false)
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Column(name = "sex", nullable = false)
     private String sex;
 
+    @Column(name = "street_address", nullable = false)
+    private String streetAddress;
+
+    @Column(name = "city", nullable = false)
+    private String city;
+
+    @Column(name = "state", nullable = false)
+    private String state;
+
+    @Column(name = "zip_code", nullable = false)
+    private String zipCode;
+
+    @Column(name = "home_phone_number", nullable = false)
+    private String homePhoneNumber;
+
+    @Column(name = "cell_phone_number", nullable = false)
+    private String cellPhoneNumber;
+
+    @Column(name = "email", nullable = false)
+    private String email;
+
     public Patient() {}
 
-    public Patient(int patientAge, String patientFirstName, String patientLastName, Date dateOfBirth, String sex) {
-        this.age = patientAge;
-        this.firstName = patientFirstName;
-        this.lastName = patientLastName;
+    public Patient(Long id, int age, String firstName, String lastName, LocalDate dateOfBirth, String sex, String streetAddress, String city, String state, String zipCode, String homePhoneNumber, String cellPhoneNumber, String email) {
+        this.id = id;
+        this.age = age;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.sex = sex;
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.homePhoneNumber = homePhoneNumber;
+        this.cellPhoneNumber = cellPhoneNumber;
+        this.email = email;
     }
 
     public int getAge() {
@@ -72,11 +101,11 @@ public class Patient {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -86,6 +115,62 @@ public class Patient {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getHomePhoneNumber() {
+        return homePhoneNumber;
+    }
+
+    public void setHomePhoneNumber(String homePhoneNumber) {
+        this.homePhoneNumber = homePhoneNumber;
+    }
+
+    public String getCellPhoneNumber() {
+        return cellPhoneNumber;
+    }
+
+    public void setCellPhoneNumber(String cellPhoneNumber) {
+        this.cellPhoneNumber = cellPhoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
