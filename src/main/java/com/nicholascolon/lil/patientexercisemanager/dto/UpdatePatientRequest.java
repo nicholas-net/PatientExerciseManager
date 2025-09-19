@@ -1,6 +1,7 @@
 package com.nicholascolon.lil.patientexercisemanager.dto;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 /***
  * The clinician will be able to update a Patient.
@@ -10,7 +11,7 @@ public class UpdatePatientRequest {
 
     private String firstName;
     private String lastName;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private String sex;
     private String streetAddress;
     private String city;
@@ -40,11 +41,11 @@ public class UpdatePatientRequest {
         this.firstName = firstName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

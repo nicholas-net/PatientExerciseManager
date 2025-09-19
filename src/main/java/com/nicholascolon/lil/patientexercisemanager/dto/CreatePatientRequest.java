@@ -1,13 +1,14 @@
 package com.nicholascolon.lil.patientexercisemanager.dto;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class CreatePatientRequest {
 
     private int age;
     private String firstName;
     private String lastName;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private String sex;
     private String streetAddress;
     private String city;
@@ -45,11 +46,11 @@ public class CreatePatientRequest {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
